@@ -3,7 +3,163 @@
 @import "palette";
 // @import "enhancer";
 
+$mq-breakpoints: (mobile: 320px,
+    mobileMedium: 375px,
+    mobileLandscape: 480px,
+    phablet: 660px,
+    tablet: 740px,
+    desktop: 980px,
+    leftCol: 1140px,
+    wide: 1300px);
+
 .interactive-atom {
     margin: 0;
     padding: 0;
+}
+
+
+.blm-voices {
+    &__header {
+        width: calc(100% - 20px);
+        padding: 10px;
+    }
+
+    &__headline {
+        font-family: "Guardian Headline Full",
+            "Guardian Egyptian Web",
+            Georgia,
+            serif;
+        font-size: 12vw;
+        line-height: 110%;
+        font-weight: 200;
+        width: 50%;
+        margin-top: 3px;
+
+        @include mq(mobileMedium) {
+            width: 54%;
+            font-size: 13vw;
+        }
+
+        @include mq(phablet) {
+            line-height: 100%;
+            width: 95%;
+            font-size: 14vw;
+        }
+
+        @include mq(tablet) {
+            width: 100%;
+            font-size: 10.5vw;
+        }
+    }
+
+    &__subheadline {
+        font-family: "Guardian Headline Full",
+            "Guardian Egyptian Web",
+            Georgia,
+            serif;
+        font-size: 17px;
+        line-height: 115%;
+        position: absolute;
+        top: 136px;
+        left: 64%;
+        width: 80px;
+        padding-left: 10px;
+
+        @include mq(mobileMedium) {
+            top: 178px;
+            left: 69%;
+            width: 80px;
+        }
+
+        @include mq(mobileLandscape) {
+            top: 159px;
+        }
+
+        @include mq(phablet) {
+            left: 65%;
+            top: 207px;
+        }
+    }
+
+    &__image {
+        filter: grayscale(100%);
+    }
+
+    &__imageone {
+        background-image: url("https://media.guim.co.uk/53dbc26cab555d719fbedd06536d90dd0a8b544a/0_300_2400_3000/800.jpg");
+        background-size: cover;
+        width: 65%;
+        height: 310px;
+
+        @include mq(mobileMedium) {
+            width: 70%;
+            height: 370px;
+        }
+
+        @include mq(phablet) {
+            width: 65%;
+            height: 570px;
+        }
+    }
+
+    &__imagetwo {
+        background-image: url("https://media.guim.co.uk/53dbc26cab555d719fbedd06536d90dd0a8b544a/0_300_2400_3000/800.jpg");
+        background-size: cover;
+        width: 45%;
+        height: 182px;
+        float: right;
+        margin-top: -101px;
+
+        @include mq(mobileMedium) {
+            margin-top: -118px;
+            height: 220px;
+        }
+
+        @include mq(mobileLandscape) {
+            margin-top: -138px;
+            height: 267px;
+        }
+
+        @include mq(phablet) {
+            height: 290px;
+            width: calc(35% - 10px);
+            margin-top: -290px;
+        }
+    }
+
+    &__imagethree {
+        background-image: url("https://media.guim.co.uk/53dbc26cab555d719fbedd06536d90dd0a8b544a/0_300_2400_3000/800.jpg");
+        background-size: cover;
+        display: none;
+
+        @include mq(desktop) {
+            display: block;
+        }
+    }
+
+    &__standfirst {
+        font-family: "Guardian Headline Full",
+            "Guardian Egyptian Web",
+            Georgia,
+            serif;
+        font-size: 17px;
+        line-height: 115%;
+        width: 90%;
+        margin-top: 40px;
+        margin-bottom: 2px;
+    }
+
+    &__byline {
+        font-family: "Guardian Headline Full",
+            "Guardian Egyptian Web",
+            Georgia,
+            serif;
+        font-size: 17px;
+        font-weight: 700;
+        line-height: 115%;
+        width: 90%;
+        margin-bottom: 24px;
+    }
+
+
 }
