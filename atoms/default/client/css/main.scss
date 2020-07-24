@@ -15,10 +15,28 @@ $mq-breakpoints: (mobile: 320px,
 .interactive-atom {
     margin: 0;
     padding: 0;
+    // margin-top: -1rem;
 }
 
 
+.for-mobile {
+    display: block;
+
+    @include mq(desktop) {
+        display: none;
+    }
+}
+
+.for-desktop {
+    display: none;
+
+    @include mq(desktop) {
+        display: block;
+    }
+}
+
 .blm-voices {
+
     &__header {
         width: calc(100% - 20px);
         padding: 10px;
@@ -50,6 +68,13 @@ $mq-breakpoints: (mobile: 320px,
             width: 100%;
             font-size: 10.5vw;
         }
+
+        @include mq(desktop) {
+            font-size: 10.8vw;
+            padding: 0 0 0 10px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
     }
 
     &__subheadline {
@@ -79,15 +104,96 @@ $mq-breakpoints: (mobile: 320px,
             left: 65%;
             top: 207px;
         }
+
+        @include mq(desktop) {
+            position: relative;
+            padding-left: 0;
+            top: unset;
+            left: unset;
+            width: 100%;
+            margin-bottom: 4px;
+            margin-top: 156px;
+        }
+
+        @include mq(leftCol) {
+            margin-top: 216px;
+            margin-top: 177px;
+        }
+    }
+
+    &__images {
+        @include mq(desktop) {
+            display: flex;
+
+            &__left,
+            &__center,
+            &__right {
+                height: 420px;
+                padding: 0 10px;
+
+                @include mq(leftCol) {
+                    height: 520px;
+                }
+            }
+
+            &__left {
+                width: calc(32% - 20px);
+                width: calc(32% - 10px);
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 1px;
+                    top: 0;
+                    bottom: 0;
+                    left: calc(32% + 10px);
+                    background-color: #121212;
+                }
+            }
+
+            &__center {
+                width: calc(32.5% - 20px);
+                width: calc(32.5% - 10px);
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 1px;
+                    top: 0;
+                    bottom: 0;
+                    left: calc(64.5% + 10px);
+                    background-color: #121212;
+                }
+            }
+
+            &__right {
+                width: calc(35.5% - 20px);
+                width: calc(35.5% - 30px);
+            }
+        }
     }
 
     &__image {
         filter: grayscale(100%);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
+
+    &__imageone,
+    &__imagetwo,
+    &__imagethree {
+        @include mq(desktop) {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+
 
     &__imageone {
         background-image: url("https://media.guim.co.uk/53dbc26cab555d719fbedd06536d90dd0a8b544a/0_300_2400_3000/800.jpg");
-        background-size: cover;
+
         width: 65%;
         height: 310px;
 
@@ -100,11 +206,19 @@ $mq-breakpoints: (mobile: 320px,
             width: 65%;
             height: 570px;
         }
+
+        @include mq(desktop) {
+            width: 100%;
+            height: 240px;
+        }
+
+        @include mq(leftCol) {
+            height: 320px;
+        }
     }
 
     &__imagetwo {
         background-image: url("https://media.guim.co.uk/53dbc26cab555d719fbedd06536d90dd0a8b544a/0_300_2400_3000/800.jpg");
-        background-size: cover;
         width: 45%;
         height: 182px;
         float: right;
@@ -125,17 +239,40 @@ $mq-breakpoints: (mobile: 320px,
             width: calc(35% - 10px);
             margin-top: -290px;
         }
+
+        @include mq(desktop) {
+            width: 100%;
+            height: 100%;
+            margin-top: 0;
+            float: none;
+        }
     }
 
     &__imagethree {
         background-image: url("https://media.guim.co.uk/53dbc26cab555d719fbedd06536d90dd0a8b544a/0_300_2400_3000/800.jpg");
-        background-size: cover;
         display: none;
 
         @include mq(desktop) {
             display: block;
+            margin-top: 15%;
+            height: 240px;
+            width: 100%;
+            margin-top: 45px;
+            margin-top: 26px;
+        }
+
+        @include mq(leftCol) {
+            height: 320px;
+            margin-top: 65px;
+        }
+
+        @include mq(wide) {
+            margin-top: 123px;
+            margin-top: 84px;
         }
     }
+
+
 
     &__standfirst {
         font-family: "Guardian Headline Full",
@@ -147,6 +284,11 @@ $mq-breakpoints: (mobile: 320px,
         width: 90%;
         margin-top: 40px;
         margin-bottom: 2px;
+
+        @include mq(desktop) {
+            margin-top: 4px;
+            margin-bottom: 0;
+        }
     }
 
     &__byline {
@@ -161,5 +303,18 @@ $mq-breakpoints: (mobile: 320px,
         margin-bottom: 24px;
     }
 
+    &__standfirst,
+    &__byline {
+        @include mq(desktop) {
+            width: 280px;
+        }
 
+        @include mq(leftCol) {
+            width: 350px;
+        }
+
+        @include mq(wide) {
+            width: 380px;
+        }
+    }
 }
