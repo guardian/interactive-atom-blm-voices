@@ -119,11 +119,63 @@ $mq-breakpoints: (mobile: 320px,
             margin-top: 216px;
             margin-top: 177px;
         }
+
+        &.for-desktop {
+          @include mq($from: desktop) {
+            width: 30%;
+            margin-bottom: -50px;
+          }
+          @include mq($from: leftCol) {
+            width: 30%;
+            margin-bottom: -57px;
+          }
+        }
+    }
+
+    @keyframes height {
+      0% {
+        height: 0;
+      }
+      50% {
+        height: 0;
+      }
+      100% {
+        height: 420px;
+      }
+    }
+
+    @keyframes heightTaller {
+      0% {
+        height: 0;
+      }
+      50% {
+        height: 0;
+      }
+      100% {
+        height: 520px;
+      }
     }
 
     &__images {
+        overflow: hidden;
+        transition: height 0.5s ease-in-out;
+
         @include mq(desktop) {
+            height: 0;
             display: flex;
+            animation-name: height;
+            animation-delay: 0.5s;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: 1;
+
+            @include mq($from: leftCol) {
+              animation-name: heightTaller;
+              animation-delay: 0.5s;
+              animation-duration: 2s;
+              animation-fill-mode: forwards;
+              animation-iteration-count: 1;
+            }
 
             &__left,
             &__center,
@@ -189,8 +241,6 @@ $mq-breakpoints: (mobile: 320px,
         }
     }
 
-
-
     &__imageone {
         background-image: url("https://media.guim.co.uk/b4ca37e0e43a512b939025761c0e8896dda54fb1/1501_0_3584_4480/1600.jpg");
 
@@ -208,12 +258,13 @@ $mq-breakpoints: (mobile: 320px,
         }
 
         @include mq(desktop) {
-            width: 100%;
-            height: 240px;
+            height: 256px;
+            width: 60%;
+            margin-left: auto;
         }
 
         @include mq(leftCol) {
-            height: 320px;
+            height: 342px;
         }
     }
 
@@ -264,6 +315,7 @@ $mq-breakpoints: (mobile: 320px,
         @include mq(leftCol) {
             height: 320px;
             margin-top: 65px;
+            width: 80%;
         }
 
         @include mq(wide) {
@@ -338,14 +390,18 @@ $mq-breakpoints: (mobile: 320px,
   border-top: 1px solid #121212;
   border-left: 1px solid #121212;
   width: 32.7%;
+  transition: width 0.5s ease-in-out;
 
   &.quotes {
     position: -webkit-sticky; /* for Safari */
     position: sticky;
-    top: 0;
+    top: -1px;
     align-self: flex-start; /* <-- this is the fix */
-    height: 100vh;
-    overflow: scroll;
+
+    .article & {
+      height: 100vh;
+      overflow: scroll;
+    }
   }
 
   .article & {
@@ -383,6 +439,30 @@ $mq-breakpoints: (mobile: 320px,
     margin-left: 30px;
     margin-top: 30px;
     margin-bottom: 60px;
+  }
+
+  .quote-card {
+    position: relative;
+
+    &:hover {
+      .hover-cta {
+        opacity: 1;
+      }
+    }
+  }
+
+  .hover-cta {
+    margin-left: 30px;
+    background-color: #ffe500;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 6px;
+    padding-top: 6px;
+    font-size: 24px;
+    border-radius: 30px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: inline;
   }
 
   @include mq($from: wide) {
