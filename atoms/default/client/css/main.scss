@@ -18,7 +18,6 @@ $mq-breakpoints: (mobile: 320px,
     // margin-top: -1rem;
 }
 
-
 .for-mobile {
     display: block;
 
@@ -40,6 +39,7 @@ $mq-breakpoints: (mobile: 320px,
     &__header {
         width: calc(100% - 20px);
         padding: 10px;
+        position: relative;
     }
 
     &__headline {
@@ -192,7 +192,7 @@ $mq-breakpoints: (mobile: 320px,
 
 
     &__imageone {
-        background-image: url("https://media.guim.co.uk/53dbc26cab555d719fbedd06536d90dd0a8b544a/0_300_2400_3000/800.jpg");
+        background-image: url("https://media.guim.co.uk/b4ca37e0e43a512b939025761c0e8896dda54fb1/1501_0_3584_4480/1600.jpg");
 
         width: 65%;
         height: 310px;
@@ -218,7 +218,7 @@ $mq-breakpoints: (mobile: 320px,
     }
 
     &__imagetwo {
-        background-image: url("https://media.guim.co.uk/53dbc26cab555d719fbedd06536d90dd0a8b544a/0_300_2400_3000/800.jpg");
+        background-image: url("https://media.guim.co.uk/2743d00dec2eebd69ac8114915bfa0633fbdcda2/1420_0_3584_4480/1600.jpg");
         width: 45%;
         height: 182px;
         float: right;
@@ -249,7 +249,7 @@ $mq-breakpoints: (mobile: 320px,
     }
 
     &__imagethree {
-        background-image: url("https://media.guim.co.uk/53dbc26cab555d719fbedd06536d90dd0a8b544a/0_300_2400_3000/800.jpg");
+        background-image: url("https://media.guim.co.uk/8c7203b16627e008ac02f2046c62b3fbf6b28213/0_640_4290_5363/1600.jpg");
         display: none;
 
         @include mq(desktop) {
@@ -317,4 +317,76 @@ $mq-breakpoints: (mobile: 320px,
             width: 380px;
         }
     }
+}
+
+.blm-article-flex {
+  display: flex;
+
+  &.quotes {
+    .articles {
+      display: none;
+    }
+
+    .quotes {
+      width: 100%;
+    }
+  }
+}
+
+
+.blm-article {
+  border-top: 1px solid #121212;
+  border-left: 1px solid #121212;
+  width: 32.7%;
+
+  &.quotes {
+    position: -webkit-sticky; /* for Safari */
+    position: sticky;
+    top: 0;
+    align-self: flex-start; /* <-- this is the fix */
+    height: 100vh;
+    overflow: scroll;
+  }
+
+  .article & {
+    h1, h2 {
+      font-size: 32px;
+    }
+
+    &.articles {
+      width: 67.3%;
+      min-height: 200vh;
+
+      p {
+        max-width: 600px;
+      }
+    }
+  }
+
+  h1 {
+    font-family: "Guardian Headline Full";
+    margin-left: 30px;
+    margin-top: 30px;
+    font-size: 60px;
+    line-height: 1.1;
+    cursor: pointer;
+  }
+
+  h2 {
+    margin-left: 30px;
+    margin-top: 0px;
+    font-weight: 200;
+    line-height: 1;
+  }
+
+  p {
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-bottom: 60px;
+  }
+
+  @include mq($from: wide) {
+    padding-left: 10px;
+    box-sizing: border-box;
+  }
 }
