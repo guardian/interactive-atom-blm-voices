@@ -59,9 +59,15 @@
     </div>
     <div class="blm-article articles">
       {{#Sheet1}}
-      <img class="{{#portrait}} portrait {{/portrait}}" id="{{id}}" src="{{Image}}">
-      <h1 data-click="1">{{Name}}</h1>
+      {{#portrait}}
+      <img class="portrait" id="{{id}}" src="{{Image}}">
+      {{/portrait}}
+
+      <h1 class="persons-name" data-click="1">{{Name}}</h1>
       <h2>{{Age }} • {{Location}}</h2>
+      {{^portrait}}
+      <img id="{{id}}" src="{{Image}}">
+      {{/portrait}}
       <p class="mobile-quote for-mobile">{{Quote}}</p>
       <p>{{Copy}}</p>
       {{/Sheet1}}
