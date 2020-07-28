@@ -3,394 +3,403 @@
 @import "palette";
 // @import "enhancer";
 
-$mq-breakpoints: (mobile: 320px,
-    mobileMedium: 375px,
-    mobileLandscape: 480px,
-    phablet: 660px,
-    tablet: 740px,
-    desktop: 980px,
-    leftCol: 1140px,
-    wide: 1300px);
+$mq-breakpoints: (
+  mobile: 320px,
+  mobileMedium: 375px,
+  mobileLandscape: 480px,
+  phablet: 660px,
+  tablet: 740px,
+  desktop: 980px,
+  leftCol: 1140px,
+  wide: 1300px,
+);
 
 .interactive-atom {
-    margin: 0;
-    padding: 0;
-    // margin-top: -1rem;
+  margin: 0;
+  padding: 0;
+  // margin-top: -1rem;
+}
+
+.interactive-wrapper {
+  overflow: hidden;
 }
 
 .for-mobile {
-    display: block;
+  display: block;
 
-    @include mq(desktop) {
-        display: none;
-    }
+  @include mq(desktop) {
+    display: none;
+  }
 }
 
 .for-desktop {
-    display: none;
+  display: none;
 
-    @include mq(desktop) {
-        display: block;
-    }
+  @include mq(desktop) {
+    display: block;
+  }
 }
 
 .blm-voices {
+  &__header {
+    width: calc(100% - 20px);
+    padding: 10px;
+    position: relative;
+  }
 
-    &__header {
-        width: calc(100% - 20px);
-        padding: 10px;
-        position: relative;
+  &__headline {
+    font-family: "Guardian Headline Full", "Guardian Egyptian Web", Georgia,
+      serif;
+    font-size: 12vw;
+    line-height: 110%;
+    font-weight: 200;
+    width: 50%;
+    margin-top: 3px;
+
+    @include mq(mobileMedium) {
+      width: 54%;
+      font-size: 13vw;
     }
 
-    &__headline {
-        font-family: "Guardian Headline Full",
-            "Guardian Egyptian Web",
-            Georgia,
-            serif;
-        font-size: 12vw;
-        line-height: 110%;
-        font-weight: 200;
-        width: 50%;
-        margin-top: 3px;
-
-        @include mq(mobileMedium) {
-            width: 54%;
-            font-size: 13vw;
-        }
-
-        @include mq(phablet) {
-            line-height: 100%;
-            width: 95%;
-            font-size: 14vw;
-        }
-
-        @include mq(tablet) {
-            width: 100%;
-            font-size: 10.5vw;
-        }
-
-        @include mq(desktop) {
-            font-size: 10.8vw;
-            padding: 0 0 0 10px;
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
+    @include mq(phablet) {
+      line-height: 100%;
+      width: 95%;
+      font-size: 14vw;
     }
 
-    &__subheadline {
-        font-family: "Guardian Headline Full",
-            "Guardian Egyptian Web",
-            Georgia,
-            serif;
-        font-size: 17px;
-        line-height: 115%;
-        position: absolute;
-        top: 136px;
-        left: 64%;
-        width: 80px;
-        padding-left: 10px;
-
-        @include mq(mobileMedium) {
-            top: 178px;
-            left: 69%;
-            width: 80px;
-        }
-
-        @include mq(mobileLandscape) {
-            top: 159px;
-        }
-
-        @include mq(phablet) {
-            left: 65%;
-            top: 207px;
-        }
-
-        @include mq(desktop) {
-            position: relative;
-            padding-left: 0;
-            top: unset;
-            left: unset;
-            width: 100%;
-            margin-bottom: 4px;
-            margin-top: 156px;
-        }
-
-        @include mq(leftCol) {
-            margin-top: 216px;
-            margin-top: 177px;
-        }
-
-        &.for-desktop {
-          @include mq($from: desktop) {
-            width: 30%;
-            margin-bottom: -50px;
-          }
-          @include mq($from: leftCol) {
-            width: 30%;
-            margin-bottom: -57px;
-          }
-        }
+    @include mq(tablet) {
+      width: 100%;
+      font-size: 10.5vw;
     }
 
-    @keyframes height {
-      0% {
-        height: 0;
+    @include mq(desktop) {
+      font-size: 10.75vw;
+      padding: 0 0 0 6px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    @include mq(leftCol) {
+      padding: 0 0 0 10px;
+      font-size: 10.8vw;
+    }
+  }
+
+  &__subheadline {
+    font-family: "Guardian Headline Full", "Guardian Egyptian Web", Georgia,
+      serif;
+    font-size: 17px;
+    line-height: 115%;
+    position: absolute;
+    top: 136px;
+    left: 64%;
+    width: 80px;
+    padding-left: 10px;
+
+    @include mq(mobileMedium) {
+      top: 178px;
+      left: 69%;
+      width: 80px;
+    }
+
+    @include mq(mobileLandscape) {
+      top: 159px;
+    }
+
+    @include mq(phablet) {
+      left: 65%;
+      top: 207px;
+    }
+
+    @include mq(desktop) {
+      position: relative;
+      padding-left: 0;
+      top: unset;
+      left: unset;
+      width: 100%;
+      margin-bottom: 4px;
+      margin-top: 156px;
+    }
+
+    @include mq(leftCol) {
+      margin-top: 216px;
+      margin-top: 177px;
+    }
+
+    &.for-desktop {
+      @include mq($from: desktop) {
+        width: 30%;
+        margin-bottom: -50px;
       }
-      50% {
-        height: 0;
+      @include mq($from: leftCol) {
+        width: 30%;
+        margin-bottom: -57px;
       }
-      100% {
+    }
+  }
+
+  @keyframes height {
+    0% {
+      height: 0;
+    }
+    50% {
+      height: 0;
+    }
+    100% {
+      height: 420px;
+    }
+  }
+
+  @keyframes heightTaller {
+    0% {
+      height: 0;
+    }
+    50% {
+      height: 0;
+    }
+    100% {
+      height: 520px;
+    }
+  }
+
+  &__images {
+    overflow: hidden;
+    transition: height 0.5s ease-in-out;
+
+    @include mq(desktop) {
+      height: 0;
+      display: flex;
+      animation-name: height;
+      animation-delay: 0.5s;
+      animation-duration: 2s;
+      animation-fill-mode: forwards;
+      animation-iteration-count: 1;
+
+      @include mq($from: leftCol) {
+        animation-name: heightTaller;
+        animation-delay: 0.5s;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: 1;
+      }
+
+      &__left,
+      &__center,
+      &__right {
         height: 420px;
-      }
-    }
-
-    @keyframes heightTaller {
-      0% {
-        height: 0;
-      }
-      50% {
-        height: 0;
-      }
-      100% {
-        height: 520px;
-      }
-    }
-
-    &__images {
-        overflow: hidden;
-        transition: height 0.5s ease-in-out;
-
-        @include mq(desktop) {
-            height: 0;
-            display: flex;
-            animation-name: height;
-            animation-delay: 0.5s;
-            animation-duration: 2s;
-            animation-fill-mode: forwards;
-            animation-iteration-count: 1;
-
-            @include mq($from: leftCol) {
-              animation-name: heightTaller;
-              animation-delay: 0.5s;
-              animation-duration: 2s;
-              animation-fill-mode: forwards;
-              animation-iteration-count: 1;
-            }
-
-            &__left,
-            &__center,
-            &__right {
-                height: 420px;
-                padding: 0 10px;
-
-                @include mq(leftCol) {
-                    height: 520px;
-                }
-            }
-
-            &__left {
-                width: calc(32% - 20px);
-                width: calc(32% - 10px);
-
-                &::after {
-                    content: '';
-                    position: absolute;
-                    width: 1px;
-                    top: 0;
-                    bottom: 0;
-                    left: calc(32% + 10px);
-                    background-color: #121212;
-                }
-            }
-
-            &__center {
-                width: calc(32.5% - 20px);
-                width: calc(32.5% - 10px);
-
-                &::after {
-                    content: '';
-                    position: absolute;
-                    width: 1px;
-                    top: 0;
-                    bottom: 0;
-                    left: calc(64.5% + 10px);
-                    background-color: #121212;
-                }
-            }
-
-            &__right {
-                width: calc(35.5% - 20px);
-                width: calc(35.5% - 30px);
-            }
-        }
-    }
-
-    &__image {
-        filter: grayscale(100%);
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
-    &__imageone,
-    &__imagetwo,
-    &__imagethree {
-        @include mq(desktop) {
-            width: 100%;
-            height: 100%;
-        }
-    }
-
-    &__imageone {
-        background-image: url("https://media.guim.co.uk/b4ca37e0e43a512b939025761c0e8896dda54fb1/1501_0_3584_4480/1600.jpg");
-
-        width: 65%;
-        height: 310px;
-
-        @include mq(mobileMedium) {
-            width: 70%;
-            height: 370px;
-        }
-
-        @include mq(phablet) {
-            width: 65%;
-            height: 570px;
-        }
-
-        @include mq(desktop) {
-            height: 256px;
-            width: 60%;
-            margin-left: auto;
-        }
+        padding: 0 10px;
 
         @include mq(leftCol) {
-            height: 342px;
+          height: 520px;
         }
+      }
+
+      &__left {
+        width: calc(32% - 20px);
+        width: calc(32% - 10px);
+
+        &::after {
+          content: "";
+          position: absolute;
+          width: 1px;
+          top: 0;
+          bottom: 0;
+          left: calc(32% + 10px);
+          background-color: #121212;
+        }
+      }
+
+      &__center {
+        width: calc(32.5% - 20px);
+        width: calc(32.5% - 10px);
+
+        &::after {
+          content: "";
+          position: absolute;
+          width: 1px;
+          top: 0;
+          bottom: 0;
+          left: calc(64.5% + 10px);
+          background-color: #121212;
+        }
+      }
+
+      &__right {
+        width: calc(35.5% - 20px);
+        width: calc(35.5% - 30px);
+      }
+    }
+  }
+
+  &__image {
+    filter: grayscale(100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__imageone,
+  &__imagetwo,
+  &__imagethree {
+    @include mq(desktop) {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__imageone {
+    background-image: url("https://media.guim.co.uk/b4ca37e0e43a512b939025761c0e8896dda54fb1/1501_0_3584_4480/1600.jpg");
+
+    width: 65%;
+    height: 310px;
+
+    @include mq(mobileMedium) {
+      width: 70%;
+      height: 370px;
     }
 
-    &__imagetwo {
-        background-image: url("https://media.guim.co.uk/2743d00dec2eebd69ac8114915bfa0633fbdcda2/1420_0_3584_4480/1600.jpg");
-        width: 45%;
-        height: 182px;
-        float: right;
-        margin-top: -101px;
-
-        @include mq(mobileMedium) {
-            margin-top: -118px;
-            height: 220px;
-        }
-
-        @include mq(mobileLandscape) {
-            margin-top: -138px;
-            height: 267px;
-        }
-
-        @include mq(phablet) {
-            height: 290px;
-            width: calc(35% - 10px);
-            margin-top: -290px;
-        }
-
-        @include mq(desktop) {
-            width: 100%;
-            height: 100%;
-            margin-top: 0;
-            float: none;
-        }
+    @include mq(phablet) {
+      width: 65%;
+      height: 570px;
     }
 
-    &__imagethree {
-        background-image: url("https://media.guim.co.uk/8c7203b16627e008ac02f2046c62b3fbf6b28213/0_640_4290_5363/1600.jpg");
-        display: none;
-
-        @include mq(desktop) {
-            display: block;
-            margin-top: 15%;
-            height: 240px;
-            width: 100%;
-            margin-top: 45px;
-            margin-top: 26px;
-        }
-
-        @include mq(leftCol) {
-            height: 320px;
-            margin-top: 65px;
-            width: 80%;
-        }
-
-        @include mq(wide) {
-            margin-top: 123px;
-            margin-top: 84px;
-        }
+    @include mq(desktop) {
+      height: 256px;
+      width: 60%;
+      margin-left: auto;
     }
 
+    @include mq(leftCol) {
+      height: 342px;
+    }
+  }
 
+  &__imagetwo {
+    background-image: url("https://uploads.guim.co.uk/2020/07/28/1.gif");
+    width: 45%;
+    height: 182px;
+    float: right;
+    margin-top: -101px;
 
-    &__standfirst {
-        font-family: "Guardian Headline Full",
-            "Guardian Egyptian Web",
-            Georgia,
-            serif;
-        font-size: 17px;
-        line-height: 115%;
-        width: 90%;
-        margin-top: 40px;
-        margin-bottom: 2px;
-
-        @include mq(desktop) {
-            margin-top: 4px;
-            margin-bottom: 0;
-        }
+    @include mq(mobileMedium) {
+      margin-top: -118px;
+      height: 220px;
     }
 
-    &__byline {
-        font-family: "Guardian Headline Full",
-            "Guardian Egyptian Web",
-            Georgia,
-            serif;
-        font-size: 17px;
-        font-weight: 700;
-        line-height: 115%;
-        width: 90%;
-        margin-bottom: 24px;
+    @include mq(mobileLandscape) {
+      margin-top: -138px;
+      height: 267px;
     }
 
-    &__standfirst,
-    &__byline {
-        @include mq(desktop) {
-            width: 280px;
-        }
-
-        @include mq(leftCol) {
-            width: 350px;
-        }
-
-        @include mq(wide) {
-            width: 380px;
-        }
+    @include mq(phablet) {
+      height: 290px;
+      width: calc(35% - 10px);
+      margin-top: -290px;
     }
+
+    @include mq(desktop) {
+      width: 100%;
+      height: 100%;
+      margin-top: 0;
+      float: none;
+    }
+  }
+
+  &__imagethree {
+    background-image: url("https://media.guim.co.uk/8c7203b16627e008ac02f2046c62b3fbf6b28213/0_640_4290_5363/1600.jpg");
+    display: none;
+
+    @include mq(desktop) {
+      display: block;
+      margin-top: 15%;
+      height: 240px;
+      width: 100%;
+      margin-top: 45px;
+      margin-top: 26px;
+    }
+
+    @include mq(leftCol) {
+      height: 320px;
+      margin-top: 65px;
+      width: 80%;
+    }
+
+    @include mq(wide) {
+      margin-top: 123px;
+      margin-top: 84px;
+    }
+  }
+
+  &__standfirst {
+    font-family: "Guardian Headline Full", "Guardian Egyptian Web", Georgia,
+      serif;
+    font-size: 17px;
+    line-height: 115%;
+    width: 90%;
+    margin-top: 40px;
+    margin-bottom: 2px;
+
+    @include mq(desktop) {
+      margin-top: 4px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__byline {
+    font-family: "Guardian Headline Full", "Guardian Egyptian Web", Georgia,
+      serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 115%;
+    width: 90%;
+    margin-bottom: 24px;
+  }
+
+  &__standfirst,
+  &__byline {
+    @include mq(desktop) {
+      width: 280px;
+    }
+
+    @include mq(leftCol) {
+      width: 350px;
+    }
+
+    @include mq(wide) {
+      width: 380px;
+    }
+  }
 }
 
 .blm-article-flex {
-  display: flex;
+  @include mq(desktop) {
+    display: flex;
+  }
 
   &.quotes {
     .articles {
-      display: none;
+      display: block;
     }
 
     .quotes {
       width: 100%;
     }
+    @include mq(desktop) {
+      .articles {
+        display: none;
+      }
+    }
   }
 }
-
 
 .blm-article {
   border-top: 1px solid #121212;
   border-left: 1px solid #121212;
-  width: 32.7%;
+  width: 100%;
   transition: width 0.5s ease-in-out;
+
+  @include mq(desktop) {
+    width: 32.7%;
+  }
 
   &.quotes {
     position: -webkit-sticky; /* for Safari */
@@ -405,7 +414,8 @@ $mq-breakpoints: (mobile: 320px,
   }
 
   .article & {
-    h1, h2 {
+    h1,
+    h2 {
       font-size: 32px;
     }
 
@@ -426,24 +436,74 @@ $mq-breakpoints: (mobile: 320px,
 
   h1 {
     font-family: "Guardian Headline Full";
-    margin-left: 30px;
-    margin-top: 30px;
-    font-size: 60px;
+    margin-left: 12px;
+    margin-top: 24px;
+    font-size: 42px;
     line-height: 1.1;
+    max-width: 620px;
     cursor: pointer;
+    @include mq(desktop) {
+      max-width: 90%;
+      margin-left: 30px;
+      margin-top: 30px;
+      font-size: 60px;
+    }
+  }
+
+  .for-desktop h1 {
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 69px;
+      height: 43px;
+      margin-right: 4px;
+      background-image: url(https://uploads.guim.co.uk/2020/07/28/quotemarks-blm.svg);
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
   }
 
   h2 {
-    margin-left: 30px;
-    margin-top: 0px;
+    margin-left: 12px;
+    margin-top: 0;
     font-weight: 200;
     line-height: 1;
+    max-width: 620px;
+    @include mq(desktop) {
+      margin-left: 30px;
+      margin-top: 0px;
+    }
   }
 
   p {
-    margin-left: 30px;
-    margin-top: 30px;
-    margin-bottom: 60px;
+    margin-left: 12px;
+    margin-top: 24px;
+    width: calc(100vw - 30px);
+    max-width: 620px;
+    @include mq(desktop) {
+      margin-left: 30px;
+      margin-top: 30px;
+      margin-bottom: 60px;
+    }
+  }
+
+  .mobile-quote {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.15;
+    width: calc(100vw - 30px);
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 28px;
+      height: 18px;
+      margin-right: 4px;
+      background-image: url(https://uploads.guim.co.uk/2020/07/28/quotemarks-blm.svg);
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
   }
 
   .quote-card {
@@ -460,10 +520,10 @@ $mq-breakpoints: (mobile: 320px,
   .hover-cta {
     margin-left: 30px;
     background-color: #ffe500;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 6px;
-    padding-top: 6px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 10px;
+    padding-top: 10px;
     font-size: 24px;
     border-radius: 30px;
     opacity: 0;

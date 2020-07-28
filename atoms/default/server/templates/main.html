@@ -48,18 +48,21 @@
   <div class="blm-article-flex quotes">
     <div class="blm-article quotes">
       {{#Sheet1}}
-      <div class="quote-card">
-        <h1 data-click="1">{{Quote}}<span class="hover-cta">Read story</span></h1>
+      <div class="quote-card for-desktop">
+        <h1 data-click="1">
+          {{Quote}}<span class="hover-cta">Read story</span>
+        </h1>
         <p>{{Name}} • {{Location}}</p>
       </div>
       {{/Sheet1}}
     </div>
     <div class="blm-article articles">
       {{#Sheet1}}
-        <img src="{{Image}}">
-        <h1 data-click="1" >{{Name}}</h1>
-        <h2>{{Age }} • {{Location}}</h2>
-        <p>{{Copy}}</p>
+      <img src="{{Image}}" />
+      <h1 data-click="1">{{Name}}</h1>
+      <h2>{{Age }} • {{Location}}</h2>
+      <p class="mobile-quote for-mobile">{{Quote}}</p>
+      <p>{{Copy}}</p>
       {{/Sheet1}}
     </div>
   </div>
