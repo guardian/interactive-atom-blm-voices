@@ -49,16 +49,17 @@
     <div class="blm-article quotes">
       {{#Sheet1}}
       <div class="quote-card for-desktop">
-        <h1 data-click="1">
-          {{Quote}}<span class="hover-cta">Read story</span>
-        </h1>
-        <p>{{Name}} • {{Location}}</p>
+        <a href="#{{id}}">
+          <h1 data-click="1">{{Quote}}</h1>
+          <p>{{Name}} • {{Location}}</p>
+          <span class="hover-cta">Read story</span>
+        </a>
       </div>
       {{/Sheet1}}
     </div>
     <div class="blm-article articles">
       {{#Sheet1}}
-      <img src="{{Image}}" />
+      <img class="{{#portrait}} portrait {{/portrait}}" id="{{id}}" src="{{Image}}">
       <h1 data-click="1">{{Name}}</h1>
       <h2>{{Age }} • {{Location}}</h2>
       <p class="mobile-quote for-mobile">{{Quote}}</p>

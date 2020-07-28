@@ -145,6 +145,36 @@ $mq-breakpoints: (
     }
   }
 
+  @keyframes animateBack {
+    0% {
+      background-image: url("https://uploads.guim.co.uk/2020/07/28/1.gif");
+    }
+
+    49% {
+      background-image: url("https://uploads.guim.co.uk/2020/07/28/1.gif");
+    }
+
+    50% {
+      background-image: url("https://uploads.guim.co.uk/2020/07/28/2.gif");
+    }
+
+    74% {
+      background-image: url("https://uploads.guim.co.uk/2020/07/28/2.gif");
+    }
+
+    75% {
+      background-image: url("https://uploads.guim.co.uk/2020/07/28/3.gif");
+    }
+
+    99% {
+      background-image: url("https://uploads.guim.co.uk/2020/07/28/3.gif");
+    }
+
+    100% {
+      background-image: url("https://uploads.guim.co.uk/2020/07/28/1.gif");
+    }
+  }
+
   @keyframes heightTaller {
     0% {
       height: 0;
@@ -325,6 +355,30 @@ $mq-breakpoints: (
     }
   }
 
+  &__imageone {
+    background-image: url("https://uploads.guim.co.uk/2020/07/28/1.gif");
+    animation-name: animateBack;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+  }
+  &__imagetwo {
+    background-image: url("https://uploads.guim.co.uk/2020/07/28/2.gif");
+    animation-name: animateBack;
+    animation-duration: 5s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+  }
+  &__imagethree {
+    background-image: url("https://uploads.guim.co.uk/2020/07/28/3.gif");
+    animation-name: animateBack;
+    animation-duration: 5s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+  }
+
   &__standfirst {
     font-family: "Guardian Headline Full", "Guardian Egyptian Web", Georgia,
       serif;
@@ -379,6 +433,7 @@ $mq-breakpoints: (
     .quotes {
       width: 100%;
     }
+
     @include mq(desktop) {
       .articles {
         display: none;
@@ -446,8 +501,11 @@ $mq-breakpoints: (
     }
   }
 
-  .for-desktop h1 {
-    &::before {
+  // .for-desktop h1 {
+  // }
+
+  .quotes & {
+    h1::before {
       content: "";
       display: inline-block;
       width: 69px;
@@ -457,6 +515,23 @@ $mq-breakpoints: (
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
+    }
+  }
+
+  .article & {
+    h1 {
+      font-size: 32px;
+      &::before {
+        content: "";
+        display: inline-block;
+        width: 38px;
+        height: 25px;
+        margin-right: 4px;
+        background-image: url(https://uploads.guim.co.uk/2020/07/28/quotemarks-blm.svg);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
     }
   }
 
@@ -479,8 +554,9 @@ $mq-breakpoints: (
     max-width: 620px;
     @include mq(desktop) {
       margin-left: 30px;
-      margin-top: 30px;
-      margin-bottom: 60px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      font-size: 20px;
     }
   }
 
@@ -511,11 +587,19 @@ $mq-breakpoints: (
         opacity: 1;
       }
     }
+
+    a {
+      color: #121212;
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
 
   .hover-cta {
     margin-left: 30px;
     background-color: #ffe500;
+    font-weight: 700;
     padding-left: 25px;
     padding-right: 25px;
     padding-bottom: 10px;
